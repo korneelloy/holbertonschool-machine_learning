@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+"""returns shape of matrix"""
+
+
 def matrix_shape(matrix):
     shape = []
     while isinstance(matrix, list):
