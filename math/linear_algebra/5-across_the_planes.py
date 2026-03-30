@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 
+"""Module adding 2D matrices element-wise"""
+
+
 def add_matrices2D(mat1, mat2):
     """Adds two 2D matrices of the same size. Returns None if sizes differ."""
     if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
