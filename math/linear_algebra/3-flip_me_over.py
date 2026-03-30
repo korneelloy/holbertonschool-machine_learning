@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 """module for flipping matrices over their diagonal"""
 
 
