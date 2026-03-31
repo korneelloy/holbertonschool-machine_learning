@@ -3,10 +3,8 @@
 
 """transpose matrix"""
 
-import numpy as np
-
 
 def np_transpose(matrix):
     """function that transposes matrix"""
-    a = np.transpose(matrix)
+    a = matrix.transpose()
     return a
