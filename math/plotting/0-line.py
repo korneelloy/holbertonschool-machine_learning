@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import numpy as np
-import matplotlib.pyplot as plt
-
 
 """plotting Y solid red / x range 0-10"""
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def line():
