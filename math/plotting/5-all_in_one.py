@@ -75,6 +75,5 @@ def all_in_one():
     plt.ylim(0, 30)
     plt.xticks(range(0, 110, 10))
     plt.yticks(range(0, 35, 5))
-    plt.show()
 
     plt.show()
