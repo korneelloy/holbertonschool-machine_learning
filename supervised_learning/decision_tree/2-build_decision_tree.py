@@ -49,9 +49,11 @@ class Node:
                 f"-> node [feature={self.feature},"
                 f" threshold={self.threshold}]\n"
             )
-        left_str = self.left_child_add_prefix(str(self.left_child))
-        right_str = self.right_child_add_prefix(str(self.right_child))
-        return (node_str + left_str + right_str).rstrip("\n")
+        left_text = str(self.left_child).rstrip("\n")
+        right_text = str(self.right_child).rstrip("\n")
+        left_str = self.left_child_add_prefix(left_text)
+        right_str = self.right_child_add_prefix(right_text)
+        return node_str + left_str + right_str
 
     def left_child_add_prefix(self, text):
         lines = text.split("\n")
