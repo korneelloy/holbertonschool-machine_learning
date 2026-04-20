@@ -28,12 +28,14 @@ class Node:
 
     def count_nodes_below(self, only_leaves=False):
         """counts nb of nodes below"""
-        if only_leaves == True:
-            return (self.left_child.count_nodes_below(only_leaves=only_leaves)
-                    + self.right_child.count_nodes_below(only_leaves=only_leaves))
-        else:
-            return (1 + self.left_child.count_nodes_below(only_leaves=only_leaves)
-                    + self.right_child.count_nodes_below(only_leaves=only_leaves))
+        if only_leaves:
+            return (
+                self.left_child.count_nodes_below(only_leaves=only_leaves)
+                + self.right_child.count_nodes_below(only_leaves=only_leaves))
+        return (
+            1
+            + self.left_child.count_nodes_below(only_leaves=only_leaves)
+            + self.right_child.count_nodes_below(only_leaves=only_leaves))
 
 
 class Leaf(Node):
