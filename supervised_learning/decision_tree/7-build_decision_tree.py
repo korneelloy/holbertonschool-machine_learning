@@ -251,6 +251,7 @@ class Decision_Tree():
         return feature, threshold
 
     def fit_node(self, node):
+        """fit node"""
         node.feature, node.threshold = self.split_criterion(node)
 
         left_population = node.sub_population & (
@@ -284,6 +285,7 @@ class Decision_Tree():
             self.fit_node(node.right_child)
 
     def get_leaf_child(self, node, sub_population):
+        """getr leaf child"""
         value = np.argmax(np.bincount(self.target[sub_population]))
         leaf_child = Leaf(value)
         leaf_child.depth = node.depth+1
@@ -291,11 +293,13 @@ class Decision_Tree():
         return leaf_child
 
     def get_node_child(self, node, sub_population):
+        """get node child"""
         n = Node()
         n.depth = node.depth+1
         n.sub_population = sub_population
         return n
 
     def accuracy(self, test_explanatory, test_target):
+        """accuracy"""
         return np.sum(np.equal(self.predict(test_explanatory),
                                test_target))/test_target.size
