@@ -212,7 +212,7 @@ class Decision_Tree():
             axis=0)
 
     def fit(self, explanatory, target, verbose=0):
-        """fit"""
+        """Fit the decision tree to the training data"""
         if self.split_criterion == "random":
             self.split_criterion = self.random_split_criterion
         else:
