@@ -305,6 +305,7 @@ class Decision_Tree():
                                test_target))/test_target.size
 
     def possible_thresholds(self, node, feature):
+        """possible_thresholds """
         values = np.unique((self.explanatory[:, feature])[node.sub_population])
         return (values[1:]+values[:-1])/2
 
