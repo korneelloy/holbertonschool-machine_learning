@@ -348,6 +348,7 @@ class Decision_Tree():
         return thresholds[best], gini_split[best]
 
     def Gini_split_criterion(self, node):
+        """gini split criterion"""
         X = np.array([self.Gini_split_criterion_one_feature(node, i)
                      for i in range(self.explanatory.shape[1])])
         i = np.argmin(X[:, 1])
