@@ -139,6 +139,6 @@ class Neuron:
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.title('Training Cost')
-            plt.savefig('training_cost.png')
+            plt.show()
 
         return (self.evaluate(X, Y))
