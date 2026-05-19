@@ -16,3 +16,5 @@ print(neuron.b)
 print(neuron.A)
 neuron.A = 10
 print(neuron.A)
+neuronb = Neuron(1.1)
+print("neuronb", neuronb.W)
