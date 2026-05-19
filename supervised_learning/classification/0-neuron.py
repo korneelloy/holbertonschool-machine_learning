@@ -20,7 +20,7 @@ class Neuron:
         self.b = 0
         self.A = 0
 
-        if not isinstance(nx, int):
+        if not isinstance(nx, int) or not isinstance(nx, float):
             raise TypeError("nx must be an integer")
         elif nx < 1:
             raise ValueError("nx must be a positive integer")
