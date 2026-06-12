@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import tensorflow as tf
-import numpy as np
+import tensorflow.keras as K
 
 """
   function that builds a neural network with the Keras library
@@ -15,21 +14,21 @@ import numpy as np
 
 
 def build_model(nx, layers, activations, lambtha, keep_prob):
-    model = tf.keras.Sequential()
+    model = K.keras.Sequential()
     for i in range(len(layers)):
         if i == 0:
             model.add(tf.keras.layers.Dense(
                 layers[i],
                 activation=activations[i],
                 input_shape=(nx,),
-                kernel_regularizer=tf.keras.regularizers.l2(lambtha)
+                kernel_regularizer=K.keras.regularizers.l2(lambtha)
             ))
         else:
             model.add(tf.keras.layers.Dense(
                 layers[i],
                 activation=activations[i],
-                kernel_regularizer=tf.keras.regularizers.l2(lambtha)
+                kernel_regularizer=K.keras.regularizers.l2(lambtha)
             ))
         if i < len(layers) - 1:
-            model.add(tf.keras.layers.Dropout(1 - keep_prob))
+            model.add(K.keras.layers.Dropout(1 - keep_prob))
     return model
