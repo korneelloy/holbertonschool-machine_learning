@@ -2,6 +2,8 @@
 
 import tensorflow.keras as K
 
+"""Adam optimisation"""
+
 
 def optimize_model(network, alpha, beta1, beta2):
     """
