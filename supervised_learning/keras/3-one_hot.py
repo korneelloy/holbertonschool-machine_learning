@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """one-hot matrix"""
 
-import numpy as np
-
 
 def create_line(classe, classes):
     """transforms label to matrix line"""
@@ -31,4 +29,4 @@ def one_hot(labels, classes=None):
         line = create_line(labels[i], classes)
         matrix.append(line)
 
-    return np.array(matrix)
+    return matrix
