@@ -1,16 +1,7 @@
 #!/usr/bin/env python3
 """one-hot matrix"""
 
-
-def create_line(classe, classes):
-    """transforms label to matrix line"""
-    line = []
-    for i in range(classes):
-        if i == classe:
-            line.append(1)
-        else:
-            line.append(0)
-    return line
+import tensorflow.keras as K
 
 
 def one_hot(labels, classes=None):
@@ -20,13 +11,7 @@ def one_hot(labels, classes=None):
     Returns: the one-hot matrix
     """
 
-    if classes is None:
-        classes = max(labels) + 1
-
-    matrix = []
-
-    for i in range(len(labels)):
-        line = create_line(labels[i], classes)
-        matrix.append(line)
-
+    matrix = K.utils.to_categorical(
+        labels, num_classes=classes
+    )
     return matrix
