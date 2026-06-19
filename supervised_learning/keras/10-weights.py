@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""saving and loading weigths"""
+
 import tensorflow.keras as K
 
 
