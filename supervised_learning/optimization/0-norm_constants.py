@@ -2,6 +2,8 @@
 
 """normalization of matrix"""
 
+import numpy as np
+
 
 def normalization_constants(X):
     """
