@@ -2,7 +2,6 @@
 
 """momentum 2"""
 
-import numpy as np
 import tensorflow as tf
 
 
