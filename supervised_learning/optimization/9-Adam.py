@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Adam"""
+"""Adam optimization algorithm"""
 
 import numpy as np
 
