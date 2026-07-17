@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""sensitivity"""
+"""sensitivity confusion matrix"""
 
 import numpy as np
 
