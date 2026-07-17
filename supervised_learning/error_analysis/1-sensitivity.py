@@ -15,6 +15,7 @@ def sensitivity(confusion):
     classes is the number of classes
     Returns: a numpy.ndarray of shape (classes,) containing the sensitivity
     of each class
+    sensitivity = tp / (tp + fn)
     """
     true_positives = np.diag(confusion)
     actual_positives = np.sum(confusion, axis=1)

@@ -15,6 +15,7 @@ def precision(confusion):
     classes is the number of classes
     Returns: a numpy.ndarray of shape (classes,) containing the
     precision of each class
+    precision   = tp / (tp + fp)
     """
     true_positives = np.diag(confusion)
     actual_positives = np.sum(confusion, axis=0)
