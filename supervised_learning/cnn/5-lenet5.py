@@ -2,7 +2,6 @@
 
 """LeNet-5 (Keras)"""
 
-import numpy as np
 from tensorflow import keras as K
 
 
