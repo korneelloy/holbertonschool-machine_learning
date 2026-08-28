@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Convolutional Forward Prop"""
+"""Pooling Forward Prop"""
 
 import numpy as np
 
