@@ -28,7 +28,7 @@ def resnet50():
     # conv1 : 7×7, 64, stride 2 → BN → ReLU
     A = K.layers.Conv2D(
         64, (7, 7), strides=2, padding='same',
-        kernel_initializer=K.initializers.HeNormal(seed=0))(inputs)
+        kernel_initializer='he_normal')(inputs)
     A = K.layers.BatchNormalization(axis=3)(A)
     A = K.layers.ReLU()(A)
 
