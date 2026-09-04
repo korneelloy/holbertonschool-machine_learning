@@ -30,7 +30,7 @@ def resnet50():
         64, (7, 7), strides=2, padding='same',
         kernel_initializer=K.initializers.HeNormal(seed=0))(inputs)
     A = K.layers.BatchNormalization(axis=3)(A)
-    A = K.layers.Activation('relu')(A)
+    A = K.layers.ReLU()(A)
 
     # pool : 3×3, stride 2
     A = K.layers.MaxPooling2D((3, 3), strides=2, padding='same')(A)
@@ -60,7 +60,7 @@ def resnet50():
     A = identity_block(A, (512, 512, 2048))
 
     # Global Average Pooling
-    A = K.layers.GlobalAveragePooling2D()(A)
+    A = K.layers.AveragePooling2D(pool_size=(7, 7))(A)
 
     # Dense(1000, softmax)
     outputs = K.layers.Dense(1000, activation='softmax')(A)
