@@ -3,6 +3,8 @@
 """ResNet-50"""
 
 from tensorflow import keras as K
+identity_block = __import__('2-identity_block').identity_block
+projection_block = __import__('3-projection_block').projection_block
 
 
 def resnet50():
@@ -21,10 +23,6 @@ def resnet50():
 
     Returns: the keras model
     """
-
-    identity_block = __import__('2-identity_block').identity_block
-    projection_block = __import__('3-projection_block').projection_block
-
     inputs = K.Input(shape=(224, 224, 3))
 
     # conv1 : 7×7, 64, stride 2 → BN → ReLU
