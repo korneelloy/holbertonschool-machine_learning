@@ -33,31 +33,33 @@ def projection_block(A_prev, filters, s=2):
 
     F11, F3, F12 = filters
     shortcut = A_prev
-    # layer 1: 1x1 conv, f + BN + relu
+
+    # layer 1: 1x1 conv → BN → ReLU
     A_prev = K.layers.Conv2D(
-        F11, (1, 1), strides=s,
-        kernel_initializer='he_normal')(A_prev)
+        F11, (1, 1),
+        kernel_initializer=K.initializers.HeNormal(seed=0))(A_prev)
     A_prev = K.layers.BatchNormalization(axis=3)(A_prev)
     A_prev = K.layers.ReLU()(A_prev)
 
-    # layer 2: 3x3 conv, f + BN + relu
+    # layer 2: 3x3 conv, stride → BN → ReLU
     A_prev = K.layers.Conv2D(
-        F3, (3, 3), padding='same',
-        kernel_initializer='he_normal')(A_prev)
+        F3, (3, 3), strides=s, padding='same',
+        kernel_initializer=K.initializers.HeNormal(seed=0))(A_prev)
     A_prev = K.layers.BatchNormalization(axis=3)(A_prev)
     A_prev = K.layers.ReLU()(A_prev)
 
-    # layer 3: 1x1 conv, f + BN
+    # layer 3: 1x1 conv → BN (no ReLU)
     A_prev = K.layers.Conv2D(
         F12, (1, 1),
-        kernel_initializer='he_normal')(A_prev)
+        kernel_initializer=K.initializers.HeNormal(seed=0))(A_prev)
     A_prev = K.layers.BatchNormalization(axis=3)(A_prev)
 
-    # layer paralel: 1x1 conv, f + BN
+    # shortcut: 1x1 conv with stride → BN (no ReLU)
     shortcut = K.layers.Conv2D(
         F12, (1, 1), strides=s,
-        kernel_initializer='he_normal')(shortcut)
+        kernel_initializer=K.initializers.HeNormal(seed=0))(shortcut)
     shortcut = K.layers.BatchNormalization(axis=3)(shortcut)
 
+    # Add + final ReLU
     A_prev = K.layers.Add()([A_prev, shortcut])
     return K.layers.ReLU()(A_prev)
