@@ -35,7 +35,7 @@ def projection_block(A_prev, filters, s=2):
     shortcut = A_prev
     # layer 1: 1x1 conv, f + BN + relu
     A_prev = K.layers.Conv2D(
-        F11, (1, 1),
+        F11, (1, 1), strides=s,
         kernel_initializer=K.initializers.HeNormal(seed=0))(A_prev)
     A_prev = K.layers.BatchNormalization(axis=3)(A_prev)
     A_prev = K.layers.Activation('relu')(A_prev)
@@ -55,7 +55,7 @@ def projection_block(A_prev, filters, s=2):
 
     # layer paralel: 1x1 conv, f + BN
     shortcut = K.layers.Conv2D(
-        F12, (1, 1),
+        F12, (1, 1), strides=s,
         kernel_initializer=K.initializers.HeNormal(seed=0))(shortcut)
     shortcut = K.layers.BatchNormalization(axis=3)(shortcut)
 
