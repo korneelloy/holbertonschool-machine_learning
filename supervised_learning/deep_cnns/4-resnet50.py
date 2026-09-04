@@ -63,6 +63,8 @@ def resnet50():
     A = K.layers.GlobalAveragePooling2D()(A)
 
     # Dense(1000, softmax)
-    outputs = K.layers.Dense(1000, activation='softmax')(A)
+    outputs = K.layers.Dense(
+        1000, activation='softmax',
+        kernel_initializer=K.initializers.HeNormal(seed=0))(A)
 
     return K.Model(inputs, outputs)
