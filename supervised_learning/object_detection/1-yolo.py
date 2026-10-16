@@ -30,8 +30,8 @@ class Yolo:
         box confidences and class probabilities
         """
         image_h, image_w = image_size
-        input_h = self.model.input.shape[1]
-        input_w = self.model.input.shape[2]
+        input_w = self.model.input.shape[1]
+        input_h = self.model.input.shape[2]
         boxes, box_confidences, box_class_probs = [], [], []
 
         for i, output in enumerate(outputs):
