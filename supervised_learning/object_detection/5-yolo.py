@@ -158,8 +158,8 @@ class Yolo:
         their pixel values to [0, 1]
         Returns (pimages, image_shapes)
         """
-        input_h = self.model.input.shape[1]
-        input_w = self.model.input.shape[2]
+        input_w = self.model.input.shape[1]
+        input_h = self.model.input.shape[2]
 
         pimages, image_shapes = [], []
         for image in images:
