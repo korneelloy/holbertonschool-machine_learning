@@ -143,6 +143,11 @@ class NST:
         """
         vgg = tf.keras.applications.VGG19(
             include_top=False, weights='imagenet')
+
+        vgg.save("base_model.h5")
+        custom_objects = {'MaxPooling2D': tf.keras.layers.AveragePooling2D}
+        vgg = tf.keras.models.load_model("base_model.h5",
+                                         custom_objects=custom_objects)
         vgg.trainable = False
 
         content_layer_list = [self.content_layer]
