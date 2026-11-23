@@ -61,7 +61,7 @@ class NST:
     @alpha.setter
     def alpha(self, value):
         """alpha - the weight for content cost - setter"""
-        if not isinstance(value, float) or (value <= 0):
+        if not isinstance(value, (int, float)) or (value < 0):
             raise TypeError(
                 "alpha must be a non-negative number")
         else:
@@ -75,7 +75,7 @@ class NST:
     @beta.setter
     def beta(self, value):
         """beta - the weight for style cost - setter"""
-        if not isinstance(value, int) or (value < 0):
+        if not isinstance(value, (int, float)) or (value < 0):
             raise TypeError(
                 "beta must be a non-negative number")
         else:
