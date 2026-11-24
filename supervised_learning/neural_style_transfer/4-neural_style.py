@@ -172,7 +172,7 @@ class NST:
             F = tf.reshape(input_layer, (H * W, C))
             G = tf.matmul(F, F, transpose_a=True)
             G = tf.expand_dims(G, axis=0)
-            return G / tf.cast(H * W, tf.float32)
+            return G / tf.cast(H * W, tf.float64)
 
     def generate_features(self):
         """
